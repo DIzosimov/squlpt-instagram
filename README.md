@@ -15,7 +15,7 @@ In **Settings > Secrets and variables > Actions > New repository secret**, add:
 |---|---|
 | `IG_ACCESS_TOKEN` | The access token from the Meta app (Instagram API with Instagram Login) |
 | `IG_USER_ID` | The Instagram user ID shown next to the token |
-| `GH_SECRETS_TOKEN` | Optional but recommended: a fine-grained GitHub token for this repository only, with the permission *Secrets: Read and write*. Lets the job renew the Instagram token by itself. |
+| `GH_SECRETS_TOKEN` | Optional but recommended: a fine-grained GitHub token for this repository and `squlpt-instagram-inbox` only, with the permission *Secrets: Read and write*. Lets the job renew the Instagram token by itself, in both repos. |
 
 Until the first two exist, the job runs and does nothing.
 

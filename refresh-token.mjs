@@ -40,14 +40,18 @@ if (!res.ok || !json.access_token) {
   process.exit(1);
 }
 console.log(`::add-mask::${json.access_token}`);
-const set = spawnSync('gh', ['secret', 'set', 'IG_ACCESS_TOKEN', '--repo', REPO], {
-  input: json.access_token,
-  env: { ...process.env, GH_TOKEN: GH_SECRETS_TOKEN },
-  encoding: 'utf8',
-});
-if (set.status !== 0) {
-  console.error(`Got a new token but could not save it: ${set.stderr}`);
-  process.exit(1);
+// The same token is used by the comment inbox, so it is stored in every repo listed.
+const repos = (process.env.TOKEN_REPOS || REPO).split(',').map(r => r.trim()).filter(Boolean);
+for (const repo of repos) {
+  const set = spawnSync('gh', ['secret', 'set', 'IG_ACCESS_TOKEN', '--repo', repo], {
+    input: json.access_token,
+    env: { ...process.env, GH_TOKEN: GH_SECRETS_TOKEN },
+    encoding: 'utf8',
+  });
+  if (set.status !== 0) {
+    console.error(`Got a new token but could not save it in ${repo}: ${set.stderr}`);
+    process.exit(1);
+  }
 }
 state.token_refreshed_at = new Date().toISOString();
 write();
