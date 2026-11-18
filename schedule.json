@@ -1,0 +1,168 @@
+{
+  "timezone": "Europe/Stockholm",
+  "min_gap_hours": 3,
+  "posts": [
+    {
+      "id": "01",
+      "title": "Meet Squlpt",
+      "images": [
+        "01-meet-squlpt.jpg"
+      ],
+      "caption": "We're David and Philipe, and we're building Squlpt.\n\nIt's a tool for interior designers. You upload a photo of a room, click on a wall, the floor or the sofa, and try other materials, colours and furniture right in the picture.\n\nYou make all the choices. Squlpt shows what they look like, so it's quicker to show a client what you have in mind.\n\nWe're in a closed beta and looking for interior designers who want to try it for free. Send us a DM if you're curious.\n\n#interiordesign #interiordesigner #interiorarchitecture #interiorstyling #squlpt",
+      "alt": [
+        "Squlpt logo with the headline \"Try materials, colours and furniture in a photo of the real room.\""
+      ],
+      "status": "scheduled",
+      "publish_at": "2026-11-20T09:00:00+01:00"
+    },
+    {
+      "id": "02",
+      "title": "Kitchen before/after",
+      "images": [
+        "02-kitchen-before-after-1.jpg",
+        "02-kitchen-before-after-2.jpg",
+        "02-kitchen-before-after-3.jpg",
+        "02-kitchen-before-after-4.jpg"
+      ],
+      "caption": "We swapped the walnut cabinets for brushed steel and changed the backsplash, the floor and the bar stools too. All in the same photo.\n\nSwipe to see the before and after. What would you have done differently?\n\n#kitchendesign #beforeandafter #interiordesign #interiordesigner #kitcheninspo",
+      "alt": [
+        "Split image of a kitchen: the left half has dark walnut cabinets and a tiled floor, the right half brushed steel cabinets and an oak floor.",
+        "Before: open kitchen with walnut cabinets, a dark marble backsplash and a polished tile floor.",
+        "After: the same kitchen with brushed steel cabinets, a light marble backsplash, an oak plank floor and rattan bar stools.",
+        "List of the four changes: cabinets, backsplash, floor and bar stools."
+      ],
+      "status": "scheduled",
+      "publish_at": "2026-11-20T13:00:00+01:00"
+    },
+    {
+      "id": "03",
+      "title": "How it works",
+      "images": [
+        "03-how-it-works-1.jpg",
+        "03-how-it-works-2.jpg",
+        "03-how-it-works-3.jpg",
+        "03-how-it-works-4.jpg",
+        "03-how-it-works-5.jpg"
+      ],
+      "caption": "A quick look at how Squlpt works:\n\n1. Upload a photo of the room\n2. Click on what you want to change\n3. Generate and compare versions\n4. Share them with your client as a link, a PDF or an FF&E schedule\n\n#interiordesignprocess #interiordesigner #designprocess #interiordesign",
+      "alt": [
+        "Headline: \"How Squlpt works. Four steps.\"",
+        "Step 1: upload a photo of the room, shown with a kitchen photo.",
+        "Step 2: click on what you want to change, with a marker on the kitchen cabinets labelled \"Cabinets: brushed steel\".",
+        "Step 3: generate and compare, shown with the updated kitchen.",
+        "Step 4: show your client with a review link, a PDF with your logo or an FF&E schedule."
+      ],
+      "status": "scheduled",
+      "publish_at": "2026-11-20T18:00:00+01:00"
+    },
+    {
+      "id": "04",
+      "title": "Living room before/after",
+      "images": [
+        "04-living-room-before-after-1.jpg",
+        "04-living-room-before-after-2.jpg",
+        "04-living-room-before-after-3.jpg"
+      ],
+      "caption": "Same sofa, different room around it. Darker walls, one large artwork instead of a gallery wall and a stone coffee table.\n\n#livingroomdesign #beforeandafter #interiordesign #homestyling",
+      "alt": [
+        "Split image of a living room with a leather sofa: the left half has a light wall with framed prints, the right half a dark wall with one large abstract artwork.",
+        "Before: living room with a tan leather sofa, a gallery wall and a round wooden coffee table.",
+        "After: the same sofa against a dark grey wall with a large abstract painting and a round concrete coffee table."
+      ],
+      "status": "hold",
+      "hold_reason": "Check that the living-room pair was made in Squlpt (the \"after\" looks like a stock photo)."
+    },
+    {
+      "id": "05",
+      "title": "You do the designing",
+      "images": [
+        "05-you-do-the-designing-1.jpg",
+        "05-you-do-the-designing-2.jpg",
+        "05-you-do-the-designing-3.jpg",
+        "05-you-do-the-designing-4.jpg"
+      ],
+      "caption": "Squlpt doesn't design rooms on its own, and that's on purpose.\n\nYou choose the materials, colours and pieces. Squlpt shows what they look like in the room, so you can try more ideas and show your client something concrete sooner.\n\n#interiordesigner #interiordesign #interiorarchitect #designbusiness",
+      "alt": [
+        "Headline: \"You do the designing. Squlpt doesn't come up with a style for you.\"",
+        "\"You pick every material, colour and piece.\"",
+        "\"Try a few versions in one afternoon.\"",
+        "\"Made for working with clients\": review links, PDF exports with your logo, FF&E schedules and schemes side by side."
+      ],
+      "status": "scheduled",
+      "publish_at": "2026-11-21T10:00:00+01:00"
+    },
+    {
+      "id": "06",
+      "title": "Bedroom before/after",
+      "images": [
+        "06-bedroom-before-after-1.jpg",
+        "06-bedroom-before-after-2.jpg",
+        "06-bedroom-before-after-3.jpg"
+      ],
+      "caption": "We tried a warmer palette on this bedroom. Grey walls before, warm beige after.\n\nWhich one would you rather sleep in?\n\n#bedroomdesign #beforeandafter #colourpalette #interiordesign",
+      "alt": [
+        "The bedroom shown twice: on top a cool grey room with framed bird prints, below a warm beige room with soft light and a pendant lamp.",
+        "Before: grey bedroom with a ceiling fan, two framed prints and blue-grey bedding.",
+        "After: warm beige bedroom with white bedding, sheer curtains and a glowing pendant lamp."
+      ],
+      "status": "scheduled",
+      "publish_at": "2026-11-21T18:00:00+01:00"
+    },
+    {
+      "id": "07",
+      "title": "Vi bakom Squlpt",
+      "images": [
+        "07-vi-bakom-squlpt-SV-1.jpg",
+        "07-vi-bakom-squlpt-SV-2.jpg"
+      ],
+      "caption": "Hej! Vi är David och Philipe och vi bygger Squlpt i Stockholm.\n\nSqulpt är ett verktyg där inredare kan testa material, färger och möbler direkt i en bild av rummet och visa kunden olika förslag.\n\nNu söker vi inredare som vill testa gratis och berätta vad de tycker. Skicka ett DM om du är nyfiken!\n\n#inredning #inredningsarkitekt #inredare #inredningsdesign #stockholm",
+      "alt": [
+        "(Describe your photo, for example \"David and Philipe at their desk in Stockholm.\")",
+        "Text: \"Hej! Vi är David och Philipe\" and a short introduction to Squlpt."
+      ],
+      "status": "hold",
+      "hold_reason": "Replace slide 1 with a real photo of David and Philipe."
+    },
+    {
+      "id": "08",
+      "title": "Hero before/after",
+      "images": [
+        "08-hero-before-after.jpg"
+      ],
+      "caption": "Before and after, made in Squlpt. Which version would you show your client?\n\n#beforeandafter #interiordesign #interiordesigner #colourinspo",
+      "alt": [
+        "Split image of a living room: the left half is the original room, the right half a new version with green walls, an orange sofa and colourful artwork."
+      ],
+      "status": "scheduled",
+      "publish_at": "2026-11-22T12:00:00+01:00"
+    },
+    {
+      "id": "09",
+      "title": "Vi söker inredare",
+      "images": [
+        "09-vi-soker-inredare-SV.jpg"
+      ],
+      "caption": "Vi söker inredare till vår beta!\n\nÄr du inredningsdesigner eller inredningsarkitekt? Testa Squlpt gratis och hjälp oss förstå vad som skulle göra ditt jobb enklare.\n\nSkicka ett DM eller mejla hello@squlpt.se\n\n#inredning #inredningsdesign #inredningsarkitekt #inredare #homestyling",
+      "alt": [
+        "Text: \"Vi söker inredare som vill testa Squlpt gratis\" and a prompt to send a DM or email hello@squlpt.se."
+      ],
+      "status": "hold",
+      "hold_reason": "Check that hello@squlpt.se receives mail."
+    },
+    {
+      "id": "10",
+      "title": "Beta call",
+      "images": [
+        "10-beta-call-EN-1.jpg",
+        "10-beta-call-EN-2.jpg"
+      ],
+      "caption": "We're letting a small group of interior designers use Squlpt for free while it's in beta.\n\nYou get full access and a direct line to us, and you get a say in what we build next. In return we'd love your honest feedback.\n\nInterested? Send us a DM or email hello@squlpt.se\n\n#interiordesigner #interiordesign #interiorarchitecture #designtools",
+      "alt": [
+        "Headline: \"Looking for interior designers to test Squlpt for free.\"",
+        "What you get: full access, a direct line to the team and a say in what's built next. Send a DM or email hello@squlpt.se."
+      ],
+      "status": "hold",
+      "hold_reason": "Check that hello@squlpt.se receives mail."
+    }
+  ]
+}
