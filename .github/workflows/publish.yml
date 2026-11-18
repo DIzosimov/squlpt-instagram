@@ -1,0 +1,41 @@
+name: Publish Instagram posts
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 minutes; GitHub may run it a few minutes late
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Renew the Instagram token once a month
+        run: node refresh-token.mjs
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
+          TOKEN_REPOS: ${{ github.repository }},DIzosimov/squlpt-instagram-inbox
+      - name: Publish the next due post
+        run: node publish.mjs
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          MEDIA_BASE: https://raw.githubusercontent.com/${{ github.repository }}/main/media
+      - name: Save the schedule
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add schedule.json state.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Update Instagram schedule" && git push)
