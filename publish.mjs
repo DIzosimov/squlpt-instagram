@@ -1,17 +1,21 @@
 // Publishes the next due post in schedule.json to Instagram through the
-// official Instagram API (Instagram Login). One post per run, at least
+// official Instagram API (Unified Login or Instagram Login). One post per run, at least
 // `min_gap_hours` apart, so a late start never dumps several posts at once.
 //
-// Env: IG_ACCESS_TOKEN, IG_USER_ID (repo secrets), MEDIA_BASE (public URL of media/).
+// Env: IG_ACCESS_TOKEN (repo secret), IG_USER_ID (optional, looked up from the token
+// when missing), MEDIA_BASE (public URL of media/).
 // DRY_RUN=1 skips the network; NOW=<iso> pretends it is another time (both for testing).
 
 import fs from 'node:fs';
 
 const SCHEDULE = 'schedule.json';
 const STATE = 'state.json';
-const API = `https://graph.instagram.com/${process.env.IG_API_VERSION || 'v23.0'}`;
 const TOKEN = process.env.IG_ACCESS_TOKEN || '';
-const USER = process.env.IG_USER_ID || '';
+// Instagram Login tokens start with "IG" and use graph.instagram.com. Unified Login
+// tokens (from Facebook Login for Business, "EAA...") use graph.facebook.com.
+const INSTAGRAM_LOGIN = TOKEN.startsWith('IG');
+const API = process.env.IG_API_BASE || (INSTAGRAM_LOGIN ? 'https://graph.instagram.com/v23.0' : 'https://graph.facebook.com/v27.0');
+let USER = process.env.IG_USER_ID || '';
 const MEDIA_BASE = (process.env.MEDIA_BASE || '').replace(/\/+$/, '');
 const DRY = process.env.DRY_RUN === '1';
 const NOW = process.env.NOW ? new Date(process.env.NOW) : new Date();
@@ -80,9 +84,26 @@ const schedule = read(SCHEDULE);
 const state = read(STATE, {});
 const gapMs = (schedule.min_gap_hours ?? 3) * 3600_000;
 
-if (!DRY && (!TOKEN || !USER)) {
-  console.log('No Instagram token yet (secrets IG_ACCESS_TOKEN and IG_USER_ID). Nothing published.');
+if (!DRY && !TOKEN) {
+  console.log('No Instagram token yet (secret IG_ACCESS_TOKEN). Nothing published.');
   process.exit(0);
+}
+if (!DRY && !USER) USER = await findAccountId();
+
+/** The Instagram account ID behind the token, so IG_USER_ID is optional. */
+async function findAccountId() {
+  const get = async (path, fields) => {
+    const res = await fetch(`${API}${path}?${new URLSearchParams({ fields, access_token: TOKEN })}`);
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || json.error) throw new Error(`Could not look up the Instagram account: ${json.error?.message || `HTTP ${res.status}`}`);
+    return json;
+  };
+  if (INSTAGRAM_LOGIN) return String((await get('/me', 'user_id')).user_id);
+  const { data = [] } = await get('/me/assigned_instagram_accounts', 'id,username');
+  const wanted = (process.env.IG_USERNAME || 'squlpt').toLowerCase();
+  const account = data.find(a => a.username?.toLowerCase() === wanted) || (data.length === 1 ? data[0] : null);
+  if (!account) throw new Error(`The token is not connected to @${wanted} (found: ${data.map(a => a.username).join(', ') || 'no accounts'}).`);
+  return account.id;
 }
 
 const due = schedule.posts

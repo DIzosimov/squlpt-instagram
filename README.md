@@ -13,11 +13,11 @@ In **Settings > Secrets and variables > Actions > New repository secret**, add:
 
 | Secret | Value |
 |---|---|
-| `IG_ACCESS_TOKEN` | The access token from the Meta app (Instagram API with Instagram Login) |
-| `IG_USER_ID` | The Instagram user ID shown next to the token |
-| `GH_SECRETS_TOKEN` | Optional but recommended: a fine-grained GitHub token for this repository and `squlpt-instagram-inbox` only, with the permission *Secrets: Read and write*. Lets the job renew the Instagram token by itself, in both repos. |
+| `IG_ACCESS_TOKEN` | The access token from the Meta app ("API setup with Unified login", or the older Instagram Login) |
+| `IG_USER_ID` | Optional. The Instagram account ID; looked up from the token when missing. |
+| `GH_SECRETS_TOKEN` | Only for Instagram Login tokens (they start with `IG` and last 60 days): a fine-grained GitHub token for this repository and `squlpt-instagram-inbox` only, with *Secrets: Read and write*, so the token renews itself. Unified Login tokens don't need it if their expiry is set to *Never* in the Meta app. |
 
-Until the first two exist, the job runs and does nothing.
+Until `IG_ACCESS_TOKEN` exists, the job runs and does nothing.
 
 ## Changing the schedule
 Edit `schedule.json` (or ask Claude to): change `publish_at`, or set a held post to `scheduled` with a `publish_at`. To publish right away, use **Actions > Publish Instagram posts > Run workflow**.

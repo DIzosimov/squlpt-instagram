@@ -16,6 +16,10 @@ const state = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) 
 const write = () => fs.writeFileSync(STATE, `${JSON.stringify(state, null, 2)}\n`);
 
 if (!TOKEN) process.exit(0);
+// Only Instagram Login tokens ("IG...") renew through this endpoint. Unified Login
+// tokens are system-user tokens whose lifetime is set in the Meta app configuration
+// (choose "Never" there); if one expires, publishing fails and GitHub emails you.
+if (!TOKEN.startsWith('IG')) process.exit(0);
 const last = Date.parse(state.token_refreshed_at || state.token_first_seen_at || '');
 if (!Number.isFinite(last)) {
   // First run with a token: start the 30-day clock from today.
